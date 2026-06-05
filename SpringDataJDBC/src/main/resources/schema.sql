@@ -1,0 +1,1 @@
+create table EMPLOYEE(id INT, name VARCHAR(25), city VARCHAR(25));

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans/"
+    xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:c="http://www.springframework.org/schema/c"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans/
+    http://www.springframework.org/schema/beans//spring-beans.xsd">
+      
+      <!-- for below code to work update above xml code -->
+      <!-- Here p and c are alias for schemas - p - property/setter -->
+      <!-- c - construnctor -->
+      <bean id="depart" class="util.Department" c:dpNo="1" c:dpName="Alien"/>
+      <bean id="emp" class="util.Employee" p:id="2" p:name="Rohan" p:salary="5454.2"
+      p:city="Bengaluru" p:depart-ref="depart"/>
+
+</beans>

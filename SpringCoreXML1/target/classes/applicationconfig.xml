@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- bean id is similar to object reference -->
+<!-- if we don't give id field below then by default it will take cammel case of class name -->
+<!-- give fully qualified name in class field -->
+<bean id="java" class="services.JavaCourse"/>
+<bean id="spring" class="services.SpringBootCourse"/>
+<bean id="devops" class="services.DevOpsCourse"/>
+
+<bean id="tron" class="services.Tron">
+
+<!-- for setter injection use property tag-->
+<!-- "name" - where you want to inject -->
+<!-- "ref" - what you want to inject -->
+<!-- Below is manual dependency injection -->
+<!-- <property ref="devops" name="course"></property> -->
+
+<!-- for constructor injection -->
+<constructor-arg ref="spring" name="course"></constructor-arg>
+
+</bean>
+
+</beans>

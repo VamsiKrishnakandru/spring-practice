@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- if no primary and autowire-candidate is given then spring will through an error as is not able to decide -->
+<!-- bean with primary=true will be given priority-->
+<!-- <bean id="java" class="services.JavaCourse" primary="true"/>
+<bean id="spring" class="services.SpringBootCourse" autowire-candidate="false"/>
+<bean id="devops" class="services.DevOpsCourse"/> -->
+
+<!-- Autowire based on byType -->
+<!-- byType - beans who's classes are implementing interface -->
+<!-- By default it is setter injection -->
+<!-- need to give primary or autowire-candidate property to remove conflicts btw beans -->
+<!-- <bean id="tron" class="services.Tron" autowire="byType"></bean> -->
+
+<!-- Autowire based on constructor -->
+<!-- <bean id="tron" class="services.Tron" autowire="constructor"></bean> -->
+
+<!-- Autowire based on byName -->
+<bean id="java" class="services.JavaCourse" primary="true"/>
+<!-- Here bean id which is same as name of ref variable in setter of target class will be injected -->
+<bean id="course" class="services.SpringBootCourse" autowire-candidate="false"/>
+<bean id="devops" class="services.DevOpsCourse"/>
+
+<bean id="tron" class="services.Tron" autowire="byName"></bean>
+
+</beans>
