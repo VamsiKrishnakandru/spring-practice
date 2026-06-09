@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+<head>
+<meta charset="UTF-8">
+<title>Ticket Booking Web App</title>
+</head>
+<body>
+<h1>Fill Below Form to Generate Ticket</h1>
+<p th:text="${ticketNumber}"/>
+	<form th:action="@{/book-ticket}" th:object="${passenger}"
+		method="post">
+		<table>
+			<tr>
+				<td>Passenger id :</td>
+				<td><input type="text" th:field="*{pid}" /></td>
+			</tr>
+			<tr>
+				<td>Passenger Name :</td>
+				<td><input type="text" th:field="*{name}" /></td>
+			</tr>
+			<tr>
+				<td>Passenger Departure :</td>
+				<td><input type="text" th:field="*{departure}" /></td>
+			</tr>
+			<tr>
+				<td>Passenger Arrival :</td>
+				<td><input type="text" th:field="*{arrival}" /></td>
+			</tr>
+			<tr>
+				<td>Passenger Date of journey :</td>
+				<td><input type="text" th:field="*{dateOfJourney}" /></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Book ticket" /></td>
+			</tr>
+		</table>
+	</form>
+	<!-- <a href="/ticket">Get Full Ticket</a> -->
+	<a th:href="@{/ticket-form}">Get Full Ticket</a>
+</body>
+</html>
